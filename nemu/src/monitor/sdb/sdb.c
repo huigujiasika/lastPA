@@ -71,13 +71,45 @@ static int cmd_si(char *args){
 }
 
 static int cmd_info(char *args){
-  char *info_case = strtok(args, " ");
-
-  if(info_case[0]=='r')
-    isa_reg_display();
+  char *subcmd=strtok(NULL," ");
+  
+  switch (subcmd[0])
+  {
+    case 'r':
+      isa_reg_display();  break;
+    case 'w':
+      //watch_display();   break;
+    default:
+      printf("Unsupported subcommand: %s\n", subcmd);
+  }
 
   return 0;
 }
+
+
+
+static int cmd_x(char *args){  //需要调整
+  char* n =strtok(NULL," ");             
+  char* exp=strtok(NULL," ");
+  
+  int num;
+  uint32_t addr;   //无符号 16进制
+
+  sscanf(n,"%d",&num);
+  //bool success=false;      //首先规定只能是16进制数
+  sscanf(exp,"%x",&addr);   
+
+  int i=0;
+  #include <memory/vaddr.h>
+  while(num--){
+    printf(" %02x",vaddr_read( addr+(i++) ,1 )  );
+  }
+  putchar('\n');
+  
+  return 0;
+}
+
+
 
 
 static struct {
@@ -90,6 +122,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si", "choose steps to excute proogram", cmd_si },
   { "info", "print info about reg or watchpoint", cmd_info },
+  { "x", "search memory", cmd_x },
 
   /* TODO: Add more commands */
 

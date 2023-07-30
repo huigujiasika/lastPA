@@ -6,6 +6,10 @@
         "cpu.h": "c",
         "stdio.h": "c",
         "isa.h": "c",
-        "reg.h": "c"
+        "reg.h": "c",
+        "history.h": "c",
+        "readline.h": "c",
+        "paddr.h": "c",
+        "ifetch.h": "c"
     }
 }

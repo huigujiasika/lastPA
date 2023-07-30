@@ -26,7 +26,7 @@ void init_wp_pool();
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
-  static char *line_read = NULL;
+  static char *line_read = NULL;       //调用结束后保留其值
 
   if (line_read) {
     free(line_read);
@@ -49,7 +49,7 @@ static int cmd_c(char *args) {
 
 
 static int cmd_q(char *args) {
-  return -1;
+  return 0;
 }
 
 static int cmd_help(char *args);

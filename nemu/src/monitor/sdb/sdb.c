@@ -99,13 +99,14 @@ static int cmd_x(char *args){  //需要调整
 
   int i=0;
   #include <memory/vaddr.h>
-  for(int inst=0;inst<num;inst++){
-    printf(" %02x",vaddr_read( addr+(i++) ,4 )  );
-  }
-  // while(num--){
-
-  //   printf(" %02x",vaddr_read( addr+(i++) ,1 )  );
+  // for(int inst=0;inst<num;inst++){
+  //   printf("0x%02x",vaddr_read( addr+(i++) ,4 )  );
   // }
+  while(num--){
+    printf("0x%02x",vaddr_read( addr+i ,4 )  );
+    i+=4;
+    //printf(" %02x",vaddr_read( addr+(i++) ,1 )  );
+  }
   putchar('\n');
   
   return 0;

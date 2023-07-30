@@ -18,10 +18,11 @@
 NEMUState nemu_state = { .state = NEMU_STOP };
 
 int is_exit_status_bad() {
-  int good = (nemu_state.state == NEMU_END && nemu_state.halt_ret == 0) ;
-  //  ||  (nemu_state.state == NEMU_QUIT);
-  //  TODO:: 此处为了完美退出将其初始掉 
+  printf("%d\n", nemu_state.state == NEMU_END);
+  printf("%d\n", nemu_state.halt_ret == 0);
 
-  printf("%d",good);
+  int good = (nemu_state.state == NEMU_END && nemu_state.halt_ret == 0) ||
+    (nemu_state.state == NEMU_QUIT);
+
   return !good;
 }

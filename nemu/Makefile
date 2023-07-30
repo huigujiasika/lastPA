@@ -61,9 +61,10 @@ include $(NEMU_HOME)/scripts/native.mk
 endif
 
 
-# .PHONY: count
-# count:
-#     git diff --shortstat $2 $3
+.PHONY: count
+count:
+	git diff --shortstat $(b1) $(b2)
+
 
 
 

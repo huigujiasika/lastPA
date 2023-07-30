@@ -135,7 +135,7 @@ static int cmd_w(char *args){
 
 static int cmd_d(char *args){
   int free_num=atoi(args);
-  printf("%d",free_num);
+  printf("%d\n",free_num);
   free_wp(free_num);
 
   return 0;

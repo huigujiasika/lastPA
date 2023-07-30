@@ -41,8 +41,14 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
   if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this->logbuf)); }
   IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));
 
+
+#define CONFIG_WATCHPOINT 0 
+#ifdef CONFIG_WATCHPOINT
   if(watch_changed())
     nemu_state.state=NEMU_STOP;
+#endif
+//TODO:: 由于检查会影响开销 所有可以用宏来控制 讲义中推荐用menuconfig控制(未实现)
+//讲义 PA1 监视点  实现监视点
 
 }
 

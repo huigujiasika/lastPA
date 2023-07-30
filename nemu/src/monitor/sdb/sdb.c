@@ -93,14 +93,21 @@ static int cmd_x(char *args){     //TODO:: 与表达式求值结合
   char* exp=strtok(NULL," ");
   
   int num;
-  uint32_t addr;              //无符号 16进制
+  //uint32_t addr;              //无符号 16进制
   sscanf(n,"%d",&num);        //首先规定只能是16进制数
-  sscanf(exp,"%x",&addr);   
+  //sscanf(exp,"%x",&addr);   
+
+  bool success=false;
+  word_t val=expr(exp,&success);
+  if(!success){
+    printf("Invalid Expression\n");
+    return -1;
+  }
 
   int i=0;
   #include <memory/vaddr.h>
   while(num--){
-    printf("0x%08x\n",vaddr_read( addr+i ,4 )  );
+    printf("0x%08x\n",vaddr_read( val+i ,4 )  );
     i+=4;
   }
   putchar('\n');

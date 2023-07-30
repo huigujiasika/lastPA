@@ -122,5 +122,6 @@ void watch_display(){
 
       findWp=findWp->next;
     }
+    printf("\n");
 
 }

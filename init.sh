@@ -24,7 +24,7 @@ function init() {
 
   if [ $4 == "true" ] ; then
     rm -rf $3/.git
-    git add -A $3
+    git add -A $3  #-A 将所有修改添加到暂存区 包括删除
     git commit -am "$1 $2 initialized"$'\n\n'"$log"
   else
     sed -i -e "/^\/$3/d" .gitignore
@@ -60,3 +60,6 @@ case $1 in
     exit
     ;;
 esac
+
+
+

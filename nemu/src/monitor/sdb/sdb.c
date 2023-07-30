@@ -58,10 +58,14 @@ static int cmd_q(char *args) {
 static int cmd_help(char *args);
 
 static int cmd_si(char *args){
-  char *args_steps = strtok(args, " ");
-  printf("%s",args_steps);
+  int steps;
 
-  int steps=atoi(args_steps);
+  char *args_steps = strtok(args, " ");
+  if(args_steps==NULL){
+    steps=1;
+    return 0;
+  }
+  steps=atoi(args_steps);
   cpu_exec(steps);
 
   return 0;

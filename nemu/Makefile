@@ -65,7 +65,5 @@ endif
 # count:
 #     git diff --shortstat $2 $3
 
-# target:
-#     @echo "This is a message."; \
-#     echo "This is another message."
+
 

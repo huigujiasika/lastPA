@@ -3,6 +3,8 @@
         "common.h": "c",
         "sdb.h": "c",
         "utils.h": "c",
-        "cpu.h": "c"
+        "cpu.h": "c",
+        "stdio.h": "c",
+        "isa.h": "c"
     }
 }

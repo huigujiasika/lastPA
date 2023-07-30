@@ -36,7 +36,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
     printf("%s\n",regs[i]);
     printf("%s\n",s);
 
-    if( strcmp(regs[i],&s[1]) ==0 ){
+    if( strcmp(regs[i],&s[1]) ==0 ){      //TODO:: 此处使用&s[1]是为了去除$进行比较
       *success=true;
       return cpu.gpr[i];
     }

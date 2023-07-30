@@ -258,11 +258,6 @@ u_int32_t eval(int p, int q, bool *success, int *position) {
         *success = true;
       }else {
         buffer = isa_reg_str2val(tokens[p].str, success);
-        printf("%d\n",*success);
-        printf("%x\n",buffer);
-        printf("%x\n",buffer);
-
-        assert(0);
       }
 
       if (!*success){

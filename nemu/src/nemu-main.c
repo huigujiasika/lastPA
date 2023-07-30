@@ -33,3 +33,7 @@ int main(int argc, char *argv[]) {
 
   return is_exit_status_bad();
 }
+
+
+//TODO:: sanitizer 检查越界 需要性能开销 目前未开
+//PA1 检查点 调试工具与原理

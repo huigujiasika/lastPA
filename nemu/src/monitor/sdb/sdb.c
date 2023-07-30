@@ -36,7 +36,7 @@ static char* rl_gets() {
   line_read = readline("(nemu) ");
 
   if (line_read && *line_read) {
-    add_history(line_read);
+    add_history(line_read);            //支持上下切换
   }
 
   return line_read;
@@ -94,16 +94,18 @@ static int cmd_x(char *args){  //需要调整
   
   int num;
   uint32_t addr;   //无符号 16进制
-
-  sscanf(n,"%d",&num);
-  //bool success=false;      //首先规定只能是16进制数
+  sscanf(n,"%d",&num);   //bool success=false;      //首先规定只能是16进制数
   sscanf(exp,"%x",&addr);   
 
   int i=0;
   #include <memory/vaddr.h>
-  while(num--){
-    printf(" %02x",vaddr_read( addr+(i++) ,1 )  );
+  for(int inst=0;inst<num;inst++){
+    printf(" %02x",vaddr_read( addr+(i++) ,4 )  );
   }
+  // while(num--){
+
+  //   printf(" %02x",vaddr_read( addr+(i++) ,1 )  );
+  // }
   putchar('\n');
   
   return 0;

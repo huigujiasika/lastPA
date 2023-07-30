@@ -10,6 +10,7 @@
         "history.h": "c",
         "readline.h": "c",
         "paddr.h": "c",
-        "ifetch.h": "c"
+        "ifetch.h": "c",
+        "vaddr.h": "c"
     }
 }

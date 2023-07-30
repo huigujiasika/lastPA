@@ -133,6 +133,13 @@ static int cmd_w(char *args){
   return 0;
 }
 
+static int cmd_d(char *args){
+  int free_num=atoi(args);
+  free_wp(free_num);
+
+  return 0;
+}
+
 static struct {
   const char *name;
   const char *description;
@@ -146,6 +153,7 @@ static struct {
   { "x", "search memory", cmd_x },
   { "p", "print expr", cmd_p },
   { "w", "create a watchpoint", cmd_w },
+  { "d", "delete a watchpoint", cmd_d },
 
   /* TODO: Add more commands */
 

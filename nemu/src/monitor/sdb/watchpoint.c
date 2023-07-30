@@ -56,14 +56,14 @@ void print_exp(){
   printf("%c\n",head->exp[0]);
 }
 
-void free_wp(WP *wp){
+bool free_wp(int NO){
   WP* findWp=head;
-  while(findWp->NO != wp->NO){      //可以改进 很有可能wp是一个 
+  while(findWp->NO != NO){      //可以改进 很有可能wp是一个 
     findWp=findWp->next;
   }
   if(findWp==NULL){
     printf("\n监视点NO错误\n");
-    return ;
+    return false;
   }
 
   if(free_==NULL){
@@ -78,6 +78,7 @@ void free_wp(WP *wp){
   }
   printf("\n监视点:%d 释放成功\n",findWp->NO);
 
+  return true;
 }
 
 void print_changed_watch(WP *wp){

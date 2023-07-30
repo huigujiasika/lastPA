@@ -35,4 +35,5 @@ word_t expr(char *e, bool *success);
 void watch_display();
 void new_wp(char* exp);
 bool watch_changed();
+bool free_wp(int NO);
 #endif

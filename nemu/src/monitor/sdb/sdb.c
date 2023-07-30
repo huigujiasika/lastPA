@@ -103,7 +103,7 @@ static int cmd_x(char *args){  //需要调整
   //   printf("0x%02x",vaddr_read( addr+(i++) ,4 )  );
   // }
   while(num--){
-    printf("0x%02x\n",vaddr_read( addr+i ,4 )  );
+    printf("0x%08x\n",vaddr_read( addr+i ,4 )  );
     i+=4;
     //printf(" %02x",vaddr_read( addr+(i++) ,1 )  );
   }

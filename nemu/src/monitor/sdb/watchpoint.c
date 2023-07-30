@@ -48,13 +48,6 @@ void new_wp(char* exp){
 
 }
 
-// uint32_t getHead(){
-//   return head->result;
-// }
-
-// void print_exp(){
-//   printf("%c\n",head->exp[0]);
-// }
 
 bool free_wp(int NO){
   WP* findWp=head,*prior=NULL;

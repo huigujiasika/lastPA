@@ -108,7 +108,19 @@ static int cmd_x(char *args){     //TODO:: 与表达式求值结合
   return 0;
 }
 
+static int cmd_p(char *args){
+  char* exp=args;
 
+  bool success=false;
+  word_t val=expr(exp,&success);
+
+  if(!success)
+    printf("Invalid Expression\n");
+  else 
+    printf("%u (0x%x)\n",val,val);
+
+  return 0;
+}
 
 
 static struct {
@@ -122,6 +134,7 @@ static struct {
   { "si", "choose steps to excute proogram", cmd_si },
   { "info", "print info about reg or watchpoint", cmd_info },
   { "x", "search memory", cmd_x },
+  { "p", "print expr", cmd_p },
 
   /* TODO: Add more commands */
 

@@ -80,19 +80,32 @@ void free_wp(WP *wp){
 
 }
 
+void print_changed_watch(WP *wp){
+  printf("Old value:%x\n",wp->result);
+  printf("New value:%x\n",wp->changed_result);
+  printf("In %s\n",wp->exp);
 
-bool watch_changed(WP** wp){   //要返回指针
+}
+
+
+bool watch_changed(){   //要返回指针
   WP* findWp=head;
+  WP* wp;
   bool success=true;
+  bool changed=false;
+
   while(findWp){
-    if(expr(findWp->exp,&success)){
-      *wp=findWp;
-      return true;
+    if(expr(findWp->exp,&success)!=findWp->result){
+      wp=findWp;
+      wp->changed_result=expr(findWp->exp,&success);
+      print_changed_watch(wp);
+
+      changed=true;
     }
     findWp=findWp->next;
   }
 
-  return false;
+  return changed;
 }
 
 
@@ -100,7 +113,6 @@ void watch_display(){
     WP* findWp=head;
 
     printf("\nNum  exp        result");
-
     while(findWp){
       bool success=false;
 

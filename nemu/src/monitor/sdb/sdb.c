@@ -88,15 +88,12 @@ static int cmd_info(char *args){
 
 
 
-static int cmd_x(char *args){     //TODO:: 与表达式求值结合
+static int cmd_x(char *args){    
   char* n =strtok(NULL," ");             
-  char* exp=strtok(NULL," ");
-  
+  char* exp=strtok(NULL," ");  
   int num;
-  //uint32_t addr;              //无符号 16进制
-  sscanf(n,"%d",&num);        //首先规定只能是16进制数
-  //sscanf(exp,"%x",&addr);   
-
+  sscanf(n,"%d",&num);        //首先规定只能是无符号16进制数 
+ 
   bool success=false;
   word_t val=expr(exp,&success);
   if(!success){

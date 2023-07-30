@@ -24,6 +24,7 @@ typedef struct watchpoint {
 
   /* TODO: Add more members if necessary */
   uint32_t result;
+  uint32_t changed_result;
   char *exp;
 } WP;
 
@@ -33,4 +34,5 @@ word_t expr(char *e, bool *success);
 //watch
 void watch_display();
 void new_wp(char* exp);
+bool watch_changed();
 #endif

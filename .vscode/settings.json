@@ -11,6 +11,9 @@
         "readline.h": "c",
         "paddr.h": "c",
         "ifetch.h": "c",
-        "vaddr.h": "c"
+        "vaddr.h": "c",
+        "locale.h": "c",
+        "decode.h": "c",
+        "difftest.h": "c"
     }
 }

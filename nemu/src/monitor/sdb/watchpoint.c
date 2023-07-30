@@ -57,15 +57,20 @@ void new_wp(char* exp){
 // }
 
 bool free_wp(int NO){
-  WP* findWp=head;
-
+  WP* findWp=head,*prior=NULL;
   while(findWp!=NULL &&  findWp->NO != NO){      //可以改进 很有可能wp是一个 
+    prior=findWp;
     findWp=findWp->next;
   }
   if(findWp==NULL){
     printf("\n监视点NO错误\n");
     return false;
   }
+  if(prior!=NULL)
+    prior->next=findWp->next;
+  else
+    head=head->next;
+
 
   if(free_==NULL){
     free_=findWp;

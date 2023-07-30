@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "common.h": "c",
-        "sdb.h": "c"
+        "sdb.h": "c",
+        "utils.h": "c",
+        "cpu.h": "c"
     }
 }

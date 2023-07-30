@@ -61,11 +61,11 @@ static int cmd_si(char *args){
   int steps;
 
   char *args_steps = strtok(args, " ");
-  if(args_steps==NULL){
+  if(args_steps==NULL)
     steps=1;
-    return 0;
-  }
-  steps=atoi(args_steps);
+  else
+    steps=atoi(args_steps);
+  
   cpu_exec(steps);
 
   return 0;

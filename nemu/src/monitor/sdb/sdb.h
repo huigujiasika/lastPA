@@ -18,6 +18,16 @@
 
 #include <common.h>
 
+typedef struct watchpoint {
+  int NO;
+  struct watchpoint *next;
+
+  /* TODO: Add more members if necessary */
+  uint32_t result;
+  char *exp;
+} WP;
+
+
 word_t expr(char *e, bool *success);
 
 #endif

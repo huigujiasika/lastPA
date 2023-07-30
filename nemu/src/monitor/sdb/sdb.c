@@ -65,11 +65,20 @@ static int cmd_si(char *args){
     steps=1;
   else
     steps=atoi(args_steps);
-  
   cpu_exec(steps);
 
   return 0;
 }
+
+static int cmd_info(char *args){
+  char *info_case = strtok(args, " ");
+
+  if(info_case[0]=='r')
+    isa_reg_display();
+
+  return 0;
+}
+
 
 static struct {
   const char *name;
@@ -80,6 +89,7 @@ static struct {
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
   { "si", "choose steps to excute proogram", cmd_si },
+  { "info", "print info about reg or watchpoint", cmd_info },
 
   /* TODO: Add more commands */
 

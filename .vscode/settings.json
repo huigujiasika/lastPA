@@ -5,6 +5,7 @@
         "utils.h": "c",
         "cpu.h": "c",
         "stdio.h": "c",
-        "isa.h": "c"
+        "isa.h": "c",
+        "reg.h": "c"
     }
 }

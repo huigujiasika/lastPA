@@ -48,13 +48,13 @@ void new_wp(char* exp){
 
 }
 
-uint32_t getHead(){
-  return head->result;
-}
+// uint32_t getHead(){
+//   return head->result;
+// }
 
-void print_exp(){
-  printf("%c\n",head->exp[0]);
-}
+// void print_exp(){
+//   printf("%c\n",head->exp[0]);
+// }
 
 bool free_wp(int NO){
   WP* findWp=head;
@@ -90,7 +90,7 @@ void print_changed_watch(WP *wp){
 }
 
 
-bool watch_changed(){   //要返回指针
+bool watch_changed(){   
   WP* findWp=head;
   WP* wp;
   bool success=true;

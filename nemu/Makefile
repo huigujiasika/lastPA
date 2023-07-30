@@ -59,3 +59,13 @@ else
 # Include rules to build NEMU
 include $(NEMU_HOME)/scripts/native.mk
 endif
+
+
+# .PHONY: count
+# count:
+#     git diff --shortstat $2 $3
+
+# target:
+#     @echo "This is a message."; \
+#     echo "This is another message."
+

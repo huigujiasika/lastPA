@@ -72,7 +72,7 @@ bool free_wp(int NO){
     free_->next=NULL;
   }
   else{
-    findWp->next=free_->next;
+    findWp->next=free_;
     free_=findWp;
     free_->exp="";
     free_->result=0;

@@ -57,13 +57,13 @@ static int cmd_q(char *args) {
 
 static int cmd_help(char *args);
 
-// static int cmd_si(char *args){
-//   char *args_steps = strtok(args, " ");
-//   int steps=atoi(args_steps);
-//   cpu_exec(steps);
+static int cmd_si(char *args){
+  char *args_steps = strtok(args, " ");
+  int steps=atoi(args_steps);
+  cpu_exec(steps);
 
-//   return 0;
-// }
+  return 0;
+}
 
 static struct {
   const char *name;
@@ -73,7 +73,7 @@ static struct {
   { "help", "Display information about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
-  //{ "si", "choose steps to excute proogram", cmd_si },
+  { "si", "choose steps to excute proogram", cmd_si },
 
   /* TODO: Add more commands */
 

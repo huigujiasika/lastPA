@@ -59,6 +59,7 @@ void print_exp(){
 bool free_wp(int NO){
   WP* findWp=head;
   while(findWp->NO != NO){      //可以改进 很有可能wp是一个 
+    printf("%d\n",findWp->NO);
     findWp=findWp->next;
   }
   if(findWp==NULL){

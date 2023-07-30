@@ -106,7 +106,7 @@ void watch_display(){
 
       uint32_t  result=expr(findWp->exp,&success);
       findWp->result=result;
-      printf("\n%-4d %s %7x\n",findWp->NO,findWp->exp,findWp->result);
+      printf("\n%-4d %s %8x\n",findWp->NO,findWp->exp,findWp->result);
 
       findWp=findWp->next;
     }

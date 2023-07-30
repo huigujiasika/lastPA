@@ -88,7 +88,7 @@ static int cmd_info(char *args){
 
 
 
-static int cmd_x(char *args){  
+static int cmd_x(char *args){     //TODO:: 与表达式求值结合
   char* n =strtok(NULL," ");             
   char* exp=strtok(NULL," ");
   

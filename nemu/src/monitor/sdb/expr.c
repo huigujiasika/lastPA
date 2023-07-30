@@ -48,7 +48,7 @@ static struct rule {
   {"&&", '&'},
   {"\\|\\|", '|'}
 };
-//TODO:: 可能未做指针解引用
+//TODO:: 未做指针* 解引用
 
 
 #define NR_REGEX ARRLEN(rules)

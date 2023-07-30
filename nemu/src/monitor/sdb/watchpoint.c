@@ -81,8 +81,6 @@ void free_wp(WP *wp){
 }
 
 
-
-
 bool watch_changed(WP** wp){   //要返回指针
   WP* findWp=head;
   bool success=true;
@@ -96,6 +94,7 @@ bool watch_changed(WP** wp){   //要返回指针
 
   return false;
 }
+
 
 void watch_display(){
     WP* findWp=head;

@@ -78,7 +78,7 @@ static int cmd_info(char *args){
     case 'r':
       isa_reg_display();  break;
     case 'w':
-      //watch_display();   break;
+      watch_display();   break;
     default:
       printf("Unsupported subcommand: %s\n", subcmd);
   }
@@ -122,6 +122,12 @@ static int cmd_p(char *args){
   return 0;
 }
 
+static int cmd_w(char *args){
+  char *exp=args;
+  new_wp(exp);
+
+  return 0;
+}
 
 static struct {
   const char *name;
@@ -135,6 +141,7 @@ static struct {
   { "info", "print info about reg or watchpoint", cmd_info },
   { "x", "search memory", cmd_x },
   { "p", "print expr", cmd_p },
+  { "w", "create a watchpoint", cmd_w },
 
   /* TODO: Add more commands */
 

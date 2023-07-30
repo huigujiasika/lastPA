@@ -81,9 +81,9 @@ void free_wp(WP *wp){
 }
 
 void print_changed_watch(WP *wp){
-  printf("Old value:%x\n",wp->result);
+  printf("\nOld value:%x\n",wp->result);
   printf("New value:%x\n",wp->changed_result);
-  printf("In %s\n",wp->exp);
+  printf("In %s\n\n",wp->exp);
 
 }
 
@@ -118,7 +118,7 @@ void watch_display(){
 
       uint32_t  result=expr(findWp->exp,&success);
       findWp->result=result;
-      printf("\n%-4d %s %8x\n",findWp->NO,findWp->exp,findWp->result);
+      printf("\n%-4d %s %8x",findWp->NO,findWp->exp,findWp->result);
 
       findWp=findWp->next;
     }

@@ -77,7 +77,7 @@ void read_mtrace(vaddr_t addr, int len,char* readmtrace_address){
     // printf("READ at " FMT_PADDR " len=%d\n", addr, len);
 
     FILE* fp=fopen(readmtrace_address,"r");
-        if (fp == NULL) {
+    if (fp) {
         printf("Failed to open file %s\n", readmtrace_address);
     }
 

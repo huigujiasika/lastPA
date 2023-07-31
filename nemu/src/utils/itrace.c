@@ -74,18 +74,18 @@ void display_iringbuf(){         //iringbuf
 
 //Mtrace
 void read_mtrace(vaddr_t addr, int len,char* readmtrace_address){   
-    printf("READ at " FMT_PADDR " len=%d\n", addr, len);
+    // printf("READ at " FMT_PADDR " len=%d\n", addr, len);
 
-    // FILE* fp=fopen(readmtrace_address,"a");
-    // if (fp == NULL) {
-    //     printf("Failed to open file %s\n", readmtrace_address);
-    // }else{
-    //     printf("OK\n");
-    // }
+    FILE* fp=fopen(readmtrace_address,"a");
+    if (fp == NULL) {
+        printf("Failed to open file %s\n", readmtrace_address);
+    }else{
+        printf("OK\n");
+    }
 
-    // fprintf(fp,"\n\n\nBEGIN MEMORy:\n");
-    // fprintf(fp,"pread at " FMT_PADDR " len=%d\n", addr, len);
-    // fclose(fp);
+    fprintf(fp,"\n\n\nBEGIN MEMORy:\n");
+    fprintf(fp,"pread at " FMT_PADDR " len=%d\n", addr, len);
+    fclose(fp);
 
 }
 

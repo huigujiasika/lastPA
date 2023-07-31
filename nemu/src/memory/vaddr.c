@@ -19,7 +19,7 @@
 
 char* readmtrace_address="./readmtrace.txt";
 char* writemtrace_address="./writemtrace.txt";
-//#define MTRACE 1
+#define MTRACE 1
 //TODO:: define逻辑需要修改 借助menuconfig
 
 word_t vaddr_ifetch(vaddr_t addr, int len) {

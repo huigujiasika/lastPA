@@ -17,22 +17,22 @@
 #include <memory/paddr.h>
 #include <common.h>
 
-char* readmtrace_address="readmtrace.txt";
-char* writemtrace_address="writemtrace.txt";
+char* mtrace_address="mtrace_address.txt";
+//char* writemtrace_address="writemtrace.txt";
 #define MTRACE 1
 //TODO:: define逻辑需要修改 借助menuconfig
 
 word_t vaddr_ifetch(vaddr_t addr, int len) {
-  IFDEF(MTRACE,read_mtrace(addr,len ,readmtrace_address));
+  IFDEF(MTRACE,read_mtrace(addr,len ,mtrace_address));
   return paddr_read(addr, len);
 }
 
 word_t vaddr_read(vaddr_t addr, int len) {
-  IFDEF(MTRACE,read_mtrace(addr,len ,readmtrace_address));
+  IFDEF(MTRACE,read_mtrace(addr,len ,mtrace_address));
   return paddr_read(addr, len);
 }
 
 void vaddr_write(vaddr_t addr, int len, word_t data) {
-  IFDEF(MTRACE,write_mtrace(addr,len,data ,writemtrace_address));
+  IFDEF(MTRACE,write_mtrace(addr,len,data ,mtrace_address));
   paddr_write(addr, len, data);
 }

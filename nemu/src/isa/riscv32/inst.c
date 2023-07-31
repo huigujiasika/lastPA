@@ -14,6 +14,7 @@
 ***************************************************************************************/
 
 #include "local-include/reg.h"
+#include <common.h>
 #include <cpu/cpu.h>
 #include <cpu/ifetch.h>
 #include <cpu/decode.h>
@@ -145,5 +146,7 @@ static int decode_exec(Decode *s) {
 
 int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
+  IFDEF(CONFIG_ITRACE, trace_inst(s->pc, s->isa.inst.val));  //收集环形指令
+
   return decode_exec(s);
 }

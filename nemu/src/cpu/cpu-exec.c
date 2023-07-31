@@ -18,6 +18,7 @@
 #include <cpu/difftest.h>
 #include <locale.h>
 
+#include "common.h"
 #include "../monitor/sdb/sdb.h"
 
 /* The assembly code of instructions executed is only output to the screen
@@ -58,7 +59,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
   isa_exec_once(s);
   cpu.pc = s->dnpc;
 
-#ifdef CONFIG_ITRACE
+#ifdef CONFIG_ITRACE               //记录每条代码 
   char *p = s->logbuf;
   p += snprintf(p, sizeof(s->logbuf), FMT_WORD ":", s->pc);
   int ilen = s->snpc - s->pc;
@@ -74,7 +75,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
   memset(p, ' ', space_len);
   p += space_len;
 
-#ifndef CONFIG_ISA_loongarch32r
+#ifndef CONFIG_ISA_loongarch32r       //反汇编
   void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
   disassemble(p, s->logbuf + sizeof(s->logbuf) - p,
       MUXDEF(CONFIG_ISA_x86, s->snpc, s->pc), (uint8_t *)&s->isa.inst.val, ilen);
@@ -109,6 +110,7 @@ static void statistic() {
 void assert_fail_msg() {
   isa_reg_display();
   statistic();
+  IFDEF(CONFIG_ITRACE, display_iringbuf())  ;
 }
 
 /* Simulate how the CPU works. */
@@ -140,6 +142,12 @@ void cpu_exec(uint64_t n) {
       // fall through
     case NEMU_QUIT: statistic();
   }
+
+  if(nemu_state.state==NEMU_ABORT || (nemu_state.state == NEMU_END && nemu_state.halt_ret != 0 ))
+    //#include "../utils/itrace.c"
+
+    IFDEF(CONFIG_ITRACE, display_iringbuf())  ;          //TODO:: 不知道合不合适
+
 }
 
 

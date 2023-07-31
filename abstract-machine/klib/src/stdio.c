@@ -68,7 +68,36 @@ int vsprintf(char *out, const char *fmt, va_list ap) {
     switch(*pin){
       case '%':
         pin++;
-        sprint_format(&pout,&pin,ap);  //TODO:: va_list* args这里有问题但是现在好像能跑
+        //sprint_format(&pout,&pin,ap);  //TODO:: va_list* args这里有问题但是现在好像能跑
+          char* s,buff[50];
+          size_t len;
+          int d;
+          
+          switch (*pin){             //TODO:: 两个代码目前有冗余
+            case  'd':               
+              pin++;
+              d=va_arg(ap,int);
+
+              s=int2str(d,buff);
+              len=strlen(s);
+
+              strcpy(pout,s);
+              (pout)+=len;   
+              break;
+
+            case  's':
+              pin++;
+              s=va_arg(ap,char*);
+
+              len=strlen(s);
+              strcpy(pout,s);
+              (pout)+=len;   //继续来到空位置
+              break;
+
+          }
+        
+
+      
         break;
       
       default:

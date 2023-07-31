@@ -17,8 +17,8 @@
 #include <memory/paddr.h>
 #include <common.h>
 
-char* readmtrace_address="./readmtrace.txt";
-char* writemtrace_address="./writemtrace.txt";
+char* readmtrace_address="readmtrace.txt";
+char* writemtrace_address="writemtrace.txt";
 #define MTRACE 1
 //TODO:: define逻辑需要修改 借助menuconfig
 

@@ -32,7 +32,7 @@ void sprint_format(char** pout, const char** pin, va_list args) {
   int d;
   char** move_out=pout;
   
-  switch (**pin){             //TDO:: 两个代码目前有冗余
+  switch (**pin){             //TODO:: 两个代码目前有冗余
     case  'd':               
       (*pin)++;
       d=va_arg(args,int);

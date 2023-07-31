@@ -4,6 +4,7 @@
 #include <stdarg.h>
 //TDOO:: 未测试
 #if !defined(__ISA_NATIVE__) || defined(__NATIVE_USE_KLIB__)
+
 char* int2str(int d,char* s);
 #define BUFFER 128
 
@@ -35,7 +36,7 @@ void sprint_format(char** pout, const char** pin, va_list args) {
       (*pin)++;
       d=va_arg(args,int);
 
-      assert(d==22);
+      // assert(d==22);
 
       s=int2str(d,buff);
       len=strlen(s);

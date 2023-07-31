@@ -34,7 +34,11 @@ void sprint_format(char** pout, const char** pin, va_list args) {
     case  'd':               
       (*pin)++;
       d=va_arg(args,int);
+      
+      assert(d==1);
+
       s=int2str(d,buff);
+
       len=strlen(s);
       strcpy(*pout,s);
       (*pout)+=len;   
@@ -43,6 +47,7 @@ void sprint_format(char** pout, const char** pin, va_list args) {
     case  's':
       (*pin)++;
       s=va_arg(args,char*);
+
       len=strlen(s);
       strcpy(*pout,s);
       (*pout)+=len;   //继续来到空位置

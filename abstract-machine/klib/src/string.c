@@ -137,21 +137,21 @@ void *memcpy(void *out, const void *in, size_t n) {//The memory areas must not  
 }
 
 int memcmp(const void *s1, const void *s2, size_t n) {
-  unsigned char* c_s1=(unsigned char*) s1;
-  const unsigned char* c_s2=(unsigned char*) s2;
+  // unsigned char* c_s1=(unsigned char*) s1;
+  // const unsigned char* c_s2=(unsigned char*) s2;
 
-  size_t  i=0;
-  while(i<n){
+  // size_t  i=0;
+  // while(i<n){
 
-    if(c_s1[i]>c_s2[i])
-        return 1;
-    else if(c_s1[i]<c_s2[i])
-        return -1;    
-    else if(c_s1[i]=='\0'&&c_s2[i]=='\0')
-      return 0;
+  //   if(c_s1[i]>c_s2[i])
+  //       return 1;
+  //   else if(c_s1[i]<c_s2[i])
+  //       return -1;    
+  //   else if(c_s1[i]=='\0'&&c_s2[i]=='\0')
+  //     return 0;
     
-    i++;
-  }
+  //   i++;
+  // }
 
   return 0;
 }

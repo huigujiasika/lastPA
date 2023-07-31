@@ -46,8 +46,8 @@ typedef uint16_t ioaddr_t;
 
 void trace_inst(word_t pc, uint32_t inst);
 void display_iringbuf();
-// void read_mtrace(vaddr_t addr, int len,char* readmtrace_address);
-// void write_mtrace(vaddr_t addr,int len,word_t data,char* writemtrace_address);
+void read_mtrace(vaddr_t addr, int len,char* readmtrace_address);
+void write_mtrace(vaddr_t addr,int len,word_t data,char* writemtrace_address);
 
 #include <debug.h>
 

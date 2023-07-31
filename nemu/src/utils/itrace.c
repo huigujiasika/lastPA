@@ -86,6 +86,7 @@ void read_mtrace(vaddr_t addr, int len,char* readmtrace_address){
         printf("%d\n", a);
     }
     fprintf(fp,"pread at " FMT_PADDR " len=%d\n", addr, len);
+    fflush(fp); 
     fclose(fp);
 
 }

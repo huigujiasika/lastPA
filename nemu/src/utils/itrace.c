@@ -78,7 +78,7 @@ void read_mtrace(vaddr_t addr, int len,char* readmtrace_address){
 
     FILE* fp=fopen(readmtrace_address,"a");
 
-    fprintf(fp,"\nBEGIN MEMORy:\n");
+    fprintf(fp,"\nBEGIN MEMORY:\n");
     fprintf(fp,"pread at " FMT_PADDR " len=%d\n", addr, len);
 
     //fflush(fp); 
@@ -89,9 +89,11 @@ void read_mtrace(vaddr_t addr, int len,char* readmtrace_address){
 void write_mtrace(vaddr_t addr,int len,word_t data,char* writemtrace_address){
     //printf("WRITE at " FMT_PADDR " len=%d, data=" FMT_WORD "\n", addr, len, data);
     
-    // FILE* fp=fopen(writemtrace_address,"w+");
-    // fprintf(fp,"\n\n\nBEGIN MEMORy:\n");
-    // fprintf(fp,"pwrite at " FMT_PADDR " len=%d, data=" FMT_WORD "\n", addr, len, data);
-    // fclose(fp);
+    FILE* fp=fopen(writemtrace_address,"a");
+
+    fprintf(fp,"\nBEGIN MEMORy:\n");
+    fprintf(fp,"pwrite at " FMT_PADDR " len=%d, data=" FMT_WORD "\n", addr, len, data);
+    
+    fclose(fp);
 
 }

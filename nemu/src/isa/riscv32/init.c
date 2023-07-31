@@ -25,7 +25,7 @@ static const uint32_t img [] = {
   0x00100073,  // ebreak (used as nemu_trap)
 };
 
-static void restart() {
+static void restart() {               //设置开始pc位置
   /* Set the initial program counter. */
   cpu.pc = RESET_VECTOR;
 
@@ -33,7 +33,7 @@ static void restart() {
   cpu.gpr[0] = 0;
 }
 
-void init_isa() {
+void init_isa() {                  //不允许程序的时候初始化
   /* Load built-in image. */
   memcpy(guest_to_host(RESET_VECTOR), img, sizeof(img));
 

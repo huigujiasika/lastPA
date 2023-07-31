@@ -16,14 +16,14 @@
 #include <isa.h>
 #include "local-include/reg.h"
 
-const char *regs[] = {
+const char *regs[] = {                 //寄存器名
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
   "s0", "s1", "a0", "a1", "a2", "a3", "a4", "a5",
   "a6", "a7", "s2", "s3", "s4", "s5", "s6", "s7",
   "s8", "s9", "s10", "s11", "t3", "t4", "t5", "t6"
 };
-
-void isa_reg_display() {
+ 
+void isa_reg_display() {             //展示寄存器值
 
   for(int i=0;i<16;i++){
     printf("%-10s0x%-8x",regs[2*i],gpr(2*i));
@@ -31,7 +31,7 @@ void isa_reg_display() {
   }
 }
 
-word_t isa_reg_str2val(const char *s, bool *success) {
+word_t isa_reg_str2val(const char *s, bool *success) {          //配对寄存器名，显示值 如$t0
   for(int i=0;i<=31;i++){
     if( strcmp(regs[i],&s[1]) ==0 ){      //TODO:: 此处使用&s[1]是为了去除$进行比较
       *success=true;

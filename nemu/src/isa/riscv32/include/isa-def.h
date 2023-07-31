@@ -19,16 +19,16 @@
 #include <common.h>
 
 typedef struct {
-  word_t gpr[32];
+  word_t gpr[32];   
   vaddr_t pc;
-} riscv32_CPU_state;
+} riscv32_CPU_state;               //全局cpu状态
 
 // decode
 typedef struct {
   union {
     uint32_t val;
   } inst;
-} riscv32_ISADecodeInfo;
+} riscv32_ISADecodeInfo;             //存放指令
 
 #define isa_mmu_check(vaddr, len, type) (MMU_DIRECT)
 

@@ -18,12 +18,12 @@
 
 #include <common.h>
 
-static inline int check_reg_idx(int idx) {
+static inline int check_reg_idx(int idx) {         //检查编号是否正确
   IFDEF(CONFIG_RT_CHECK, assert(idx >= 0 && idx < 32));
   return idx;
 }
 
-#define gpr(idx) cpu.gpr[check_reg_idx(idx)]
+#define gpr(idx) cpu.gpr[check_reg_idx(idx)]        //得到reg值
 
 static inline const char* reg_name(int idx, int width) {
   extern const char* regs[];

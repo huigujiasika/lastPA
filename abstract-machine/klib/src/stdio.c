@@ -30,6 +30,7 @@ void sprint_format(char** pout, const char** pin, va_list args) {
   char* s,buff[50];
   size_t len;
   int d;
+  char** move_out=pout;
   
   switch (**pin){             //TDO:: 两个代码目前有冗余
     case  'd':               
@@ -41,8 +42,8 @@ void sprint_format(char** pout, const char** pin, va_list args) {
       s=int2str(d,buff);
       len=strlen(s);
 
-      strcpy(*pout,s);
-      (*pout)+=len;   
+      strcpy(*move_out,s);
+      (*move_out)+=len;   
       break;
 
     case  's':
@@ -50,8 +51,8 @@ void sprint_format(char** pout, const char** pin, va_list args) {
       s=va_arg(args,char*);
 
       len=strlen(s);
-      strcpy(*pout,s);
-      (*pout)+=len;   //继续来到空位置
+      strcpy(*move_out,s);
+      (*move_out)+=len;   //继续来到空位置
       break;
   }
 

@@ -26,7 +26,7 @@ int printf(const char *fmt, ...) {
 
 void sprint_format(char** pout, const char** pin, va_list args) {      
   // 此处为了返回指针的值 使用双重指针
-  char* s,buff[15];
+  char* s,buff[50];
   size_t len;
   int d;
   
@@ -34,7 +34,7 @@ void sprint_format(char** pout, const char** pin, va_list args) {
     case  'd':               
       (*pin)++;
       d=va_arg(args,int);
-      
+
       assert(d==1);
 
       s=int2str(d,buff);
@@ -130,6 +130,8 @@ char* int2str(int d,char* s){
   i++;   //多往前了一个
   return &s[i];
 }
+
+
 #endif
 
  

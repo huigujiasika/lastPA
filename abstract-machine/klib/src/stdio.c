@@ -38,8 +38,10 @@ void sprint_format(char** pout, const char** pin, va_list args) {
       assert(d==1);
 
       s=int2str(d,buff);
-
       len=strlen(s);
+
+      assert(len==2);
+
       strcpy(*pout,s);
       (*pout)+=len;   
       break;

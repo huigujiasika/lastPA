@@ -31,7 +31,7 @@
 CPU_state cpu = {};
 uint64_t g_nr_guest_inst = 0;
 static uint64_t g_timer = 0; // unit: us
-static bool g_print_step = false;
+static bool g_print_step = false;   //没走一步打印指令
 
 void device_update();
 
@@ -48,7 +48,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
   if(watch_changed())
     nemu_state.state=NEMU_STOP;
 #endif
-//TODO:: 由于检查会影响开销 所有可以用宏来控制 讲义中推荐用menuconfig控制(未实现)
+//TODO:: 由于检查点会影响开销 所有可以用宏来控制 讲义中推荐用menuconfig控制(未实现)
 //讲义 PA1 监视点  实现监视点
 
 }
@@ -144,7 +144,6 @@ void cpu_exec(uint64_t n) {
   }
 
   if(nemu_state.state==NEMU_ABORT || (nemu_state.state == NEMU_END && nemu_state.halt_ret != 0 ))
-    //#include "../utils/itrace.c"
 
     IFDEF(CONFIG_ITRACE, display_iringbuf())  ;          //TODO:: 不知道合不合适
 

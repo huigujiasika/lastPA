@@ -141,6 +141,15 @@ static int cmd_d(char *args){
   return 0;
 }
 
+static int cmd_f(char *args){
+  // char* elf_filename=args;
+  
+
+
+  return 0;
+}
+
+
 static struct {
   const char *name;
   const char *description;
@@ -157,7 +166,7 @@ static struct {
   { "d", "delete a watchpoint", cmd_d },
 
   /* TODO: Add more commands */
-
+  { "ftrace", "set ftrace file", cmd_f },
 };
 
 #define NR_CMD ARRLEN(cmd_table)

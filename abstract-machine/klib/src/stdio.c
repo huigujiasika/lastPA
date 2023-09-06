@@ -2,6 +2,8 @@
 #include <klib.h>
 #include <klib-macros.h>
 #include <stdarg.h>
+
+
 //TDOO:: 未测试
 #if !defined(__ISA_NATIVE__) || defined(__NATIVE_USE_KLIB__)
 
@@ -20,6 +22,7 @@ int printf(const char *fmt, ...) {
       putch(buffer[i]);
 
     return len;
+
 }
 
 

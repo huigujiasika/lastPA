@@ -9,7 +9,8 @@
 extern "C" {
 #endif
 
-//#define __NATIVE_USE_KLIB__
+#define __NATIVE_USE_KLIB__
+//TODO:: 不注释 当使用native时使用的是自己的  如果使用native就不能做一些架构相关的假设 在klib上
 
 // string.h
 void  *memset    (void *s, int c, size_t n);

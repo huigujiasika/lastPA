@@ -35,8 +35,9 @@ static void report_mmio_overlap(const char *name1, paddr_t l1, paddr_t r1,
 /* device interface */
 void add_mmio_map(const char *name, paddr_t addr, void *space, uint32_t len, io_callback_t callback) {
   assert(nr_map < NR_MAP);
+
   paddr_t left = addr, right = addr + len - 1;
-  if (in_pmem(left) || in_pmem(right)) {
+  if (in_pmem(left) || in_pmem(right)) {     //端口addr地址映射不能与储存重叠 储存中分配的空间为space
     report_mmio_overlap(name, left, right, "pmem", PMEM_LEFT, PMEM_RIGHT);
   }
   for (int i = 0; i < nr_map; i++) {
@@ -47,6 +48,7 @@ void add_mmio_map(const char *name, paddr_t addr, void *space, uint32_t len, io_
 
   maps[nr_map] = (IOMap){ .name = name, .low = addr, .high = addr + len - 1,
     .space = space, .callback = callback };
+
   Log("Add mmio map '%s' at [" FMT_PADDR ", " FMT_PADDR "]",
       maps[nr_map].name, maps[nr_map].low, maps[nr_map].high);
 

@@ -25,7 +25,7 @@ static inline int check_reg_idx(int idx) {         //检查编号是否正确
 
 #define gpr(idx) cpu.gpr[check_reg_idx(idx)]        //得到reg值
 
-static inline const char* reg_name(int idx, int width) {
+static inline const char* reg_name(int idx, int width) {        
   extern const char* regs[];
   return regs[check_reg_idx(idx)];
 }

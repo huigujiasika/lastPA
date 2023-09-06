@@ -50,6 +50,7 @@ void device_update() {
       case SDL_QUIT:
         nemu_state.state = NEMU_QUIT;
         break;
+
 #ifdef CONFIG_HAS_KEYBOARD
       // If a key was pressed
       case SDL_KEYDOWN:
@@ -72,6 +73,7 @@ void sdl_clear_event_queue() {
   while (SDL_PollEvent(&event));
 #endif
 }
+
 
 void init_device() {
   IFDEF(CONFIG_TARGET_AM, ioe_init());
